@@ -5,13 +5,17 @@ Created on Tue Nov  7 18:48:16 2017
 @author: Kevin
 
 TODO: More visualizations
-TODO: SVM, Random forest
-TODO: General Cleaning
+TODO: Random forest
+TODO: General Cleaning of code
 
 Great resource for visualisations
 https://www.kaggle.com/ash316/learn-pandas-with-pokemons
 http://thelillysblog.com/2017/08/18/machine-learning-k-fold-validation/
 https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/
+
+SKlearn cheatsheets:
+https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Scikit_Learn_Cheat_Sheet_Python.pdf
+https://www.datacamp.com/community/blog/scikit-learn-cheat-sheet
 """
 
 import pandas as pd
@@ -161,6 +165,8 @@ gnb.fit(X_train, Y_train)
 
 # lets try naive bayes with kfolds
 results = model_selection.cross_val_score(gnb, X_test, Y_test, cv=kfold)
+# You could also just do this ...
+results = model_selection.cross_val_score(gnb, X_test, Y_test, cv=10)
 results.mean()
 
 # What about leave one out cv?
@@ -170,5 +176,31 @@ results2.mean()
 
 ''' Algorithm - Support Vector Machines (SVM) with K-Folds Cross Validation '''
 # Start up SVM
+# https://chrisalbon.com/machine-learning/cross_validation_parameter_tuning_grid_search.html
+#from sklearn.svm import SVC
+from sklearn import svm
+estimator = SVC(kernel='linear')
 
+#from sklearn.grid_search import GridSearchCV
+# https://stats.stackexchange.com/questions/95797/how-to-split-the-dataset-for-cross-validation-learning-curve-and-final-evaluat
+# https://stackoverflow.com/questions/41407451/rbf-svm-parameters-using-gridsearchcv-in-scikit-learn-typeerror-kfold-o
+from sklearn.model_selection import GridSearchCV
 
+svm_parameters = [
+                  {'C': [1, 10, 100, 1000], 'kernel': ['linear']},
+                  {'C': [1, 10, 100, 1000], 'gamma': [0.001, 0.0001], 'kernel': ['rbf']}
+                  ]
+svm_classifier = GridSearchCV(estimator=estimator, cv=kfold, param_grid=svm_parameters)
+
+svm_classifier.fit(X_train, Y_train)
+
+print('Best score for data:', svm_classifier.best_score_)
+print('Best C:',svm_classifier.best_estimator_.C) 
+print('Best Kernel:',svm_classifier.best_estimator_.kernel)
+print('Best Gamma:',svm_classifier.best_estimator_.gamma)
+
+svm_classifier.score(X_test, Y_test)
+
+#svm.SVC(C=1000, kernel='linear', gamma='auto').fit(X_train, Y_train).score(X_test, Y_test)
+
+''' Algorithm - Random Forest '''
