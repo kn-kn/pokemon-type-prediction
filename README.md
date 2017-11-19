@@ -4,13 +4,13 @@
 
 
 
-Small project utilizing three supervised learning models to predict Pokemon types:
+### Small project utilizing three supervised learning models to predict Pokemon types:
 
 1. Naives Bayes
 2. Support Vector Machines
 3. Random Forest
 
-In addition, the following techniques will be utilized:
+### In addition, the following techniques will be utilized:
 
 1. K-folds Cross Validation
 2. Leave-one-out Cross Validation
@@ -18,7 +18,7 @@ In addition, the following techniques will be utilized:
 
 
 
-The following is a quick summary of the variables found in the datasets:
+## The following is a quick summary of the variables found in the datasets:
 
 
 Variable Name | Description | 
@@ -40,7 +40,7 @@ base_experience | base experience received when defeating this pokemon
 is_default | is an identifier stating this pokemon is the base form in the event there are different versions
     
  
-The datasets used in the model can be found via: 
+### The datasets used in the model can be found via: 
   
   - https://www.kaggle.com/abcsds/pokemon
   - https://github.com/veekun/pokedex/blob/master/pokedex/data/csv/pokemon.csv
