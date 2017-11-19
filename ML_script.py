@@ -4,11 +4,6 @@ Created on Tue Nov  7 18:48:16 2017
 
 @author: Kevin
 
-Great resource for visualisations
-https://www.kaggle.com/ash316/learn-pandas-with-pokemons
-http://thelillysblog.com/2017/08/18/machine-learning-k-fold-validation/
-https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/
-
 SKlearn cheatsheets:
 https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Scikit_Learn_Cheat_Sheet_Python.pdf
 https://www.datacamp.com/community/blog/scikit-learn-cheat-sheet
@@ -20,6 +15,9 @@ http://scikit-learn.org/stable/modules/cross_validation.html
 https://chrisalbon.com/machine-learning/cross_validation_parameter_tuning_grid_search.html
 https://stats.stackexchange.com/questions/95797/how-to-split-the-dataset-for-cross-validation-learning-curve-and-final-evaluat
 https://stackoverflow.com/questions/41407451/rbf-svm-parameters-using-gridsearchcv-in-scikit-learn-typeerror-kfold-o
+https://www.kaggle.com/abcsds/pokemon
+http://thelillysblog.com/2017/08/18/machine-learning-k-fold-validation/
+https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/
 """
 
 import pandas as pd
@@ -261,19 +259,12 @@ start_time = time.time()
 forest_classifier.fit(X_train, Y_train)
 print("Random Forest took", time.time() - start_time, "seconds to train.")
 
+# Visualize results
 labels = ['Naive Bayes', 'SVM', 'Random Forest']
 scores = [0.092, 0.235, 0.147]
 train_time = [0.002, 8.379, 62.117]
 
-# Overall Score
+fig, axs = plt.subplots(nrows=1, ncols=2)
 sns.set(style="darkgrid", context="talk")
-ax = plt.axes()
-ax.set_title("Overall Model Scores")
-sns.barplot(labels, scores, ax=ax);
-
-# Overall Computing Time
-sns.set(style="darkgrid", context="talk")
-ax = plt.axes()
-ax.set_title("Overall Training Time")
-ax.set_ylabel("Time in Seconds")
-sns.barplot(labels, train_time, ax=ax);
+sns.barplot(x=labels, y=scores, ax=axs[0])
+sns.barplot(x=labels, y=train_time, ax=axs[1])
