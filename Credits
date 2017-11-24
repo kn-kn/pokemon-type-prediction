@@ -1,0 +1,24 @@
+Resources consulted:
+
+https://www.kaggle.com/abcsds/pokemon
+http://scikit-learn.org/stable/modules/cross_validation.html
+
+https://chrisalbon.com/machine-learning/cross_validation_parameter_tuning_grid_search.html
+http://thelillysblog.com/2017/08/18/machine-learning-k-fold-validation/
+https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/
+
+https://stackoverflow.com/questions/16704782/python-pandas-removing-rows-from-a-dataframe-based-on-a-previously-obtained-su
+https://stats.stackexchange.com/questions/95797/how-to-split-the-dataset-for-cross-validation-learning-curve-and-final-evaluat
+https://stackoverflow.com/questions/41407451/rbf-svm-parameters-using-gridsearchcv-in-scikit-learn-typeerror-kfold-o
+
+Image Credits:
+
+Pokemon Logo, Pokemon Images, Poke Crystal Launch Screen: https://bulbapedia.bulbagarden.net/wiki/Main_Page
+
+Grass Type Icon: http://www.pvhc.net/img180/lpwfqnthohncneyelixt.png
+
+Naive Bayes: http://www.saedsayad.com/images/Bayes_rule.png
+
+SVM: https://qph.ec.quoracdn.net/main-qimg-08fe68adf9ee3e05ca806e72cbd88b54
+
+Random Forest: https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAA1xAAAAJDQwOTViODUwLTg1OGYtNGM5ZS04NmNjLWMwMjJmMWI5NjdhYw.png
