@@ -3,21 +3,6 @@
 Created on Tue Nov  7 18:48:16 2017
 
 @author: Kevin
-
-SKlearn cheatsheets:
-https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Scikit_Learn_Cheat_Sheet_Python.pdf
-https://www.datacamp.com/community/blog/scikit-learn-cheat-sheet
-
-Resources Used:
-http://www.tradinggeeks.net/2015/08/calculating-correlation-in-python/
-https://stackoverflow.com/questions/16704782/python-pandas-removing-rows-from-a-dataframe-based-on-a-previously-obtained-su
-http://scikit-learn.org/stable/modules/cross_validation.html
-https://chrisalbon.com/machine-learning/cross_validation_parameter_tuning_grid_search.html
-https://stats.stackexchange.com/questions/95797/how-to-split-the-dataset-for-cross-validation-learning-curve-and-final-evaluat
-https://stackoverflow.com/questions/41407451/rbf-svm-parameters-using-gridsearchcv-in-scikit-learn-typeerror-kfold-o
-https://www.kaggle.com/abcsds/pokemon
-http://thelillysblog.com/2017/08/18/machine-learning-k-fold-validation/
-https://machinelearningmastery.com/evaluate-performance-machine-learning-algorithms-python-using-resampling/
 """
 
 import pandas as pd
@@ -26,12 +11,10 @@ import os
 import seaborn as sns
 
 import matplotlib.pyplot as plt
-%pylab inline
 
 pylab.rcParams['figure.figsize'] = (8.0, 7.0)
 
-#os.chdir('C:/Users/Kevin/Desktop/Dropbox/Dropbox/Brainstation - Project/')
-os.chdir('C:/Users/knguyen/Dropbox/Brainstation - Project/')
+os.chdir('insert-path-here')
 
 # Import data
 df = pd.read_csv('Pokemon.csv')
@@ -171,11 +154,6 @@ from sklearn.naive_bayes import GaussianNB
 gnb = GaussianNB()
 gnb.fit(X_train, Y_train)
 
-#pred = gnb.predict(X_test)
-# Calculate accuracy
-#from sklearn.metrics import accuracy_score
-#accuracy = accuracy_score(pred, Y_test)
-
 # Naives Bayes with Kfolds on our Test Data
 results = model_selection.cross_val_score(gnb, X_test, Y_test, cv=kfold)
 results.mean()
@@ -194,7 +172,6 @@ from sklearn import svm
 estimator = SVC(kernel='linear')
 
 # Let us conduct parameter tuning with GridSearchCV to optimize our results
-#from sklearn.grid_search import GridSearchCV
 from sklearn.model_selection import GridSearchCV
 
 # Prep up parameters to tune
@@ -216,7 +193,6 @@ print('Best Gamma:',svm_classifier.best_estimator_.gamma)
 # Test our trained SVM classifier with our test data
 svm_classifier.score(X_test, Y_test)
 
-#svm.SVC(C=1000, kernel='linear', gamma='auto').fit(X_train, Y_train).score(X_test, Y_test)
 
 ''' Algorithm - Random Forest '''
 from sklearn.ensemble import RandomForestClassifier
